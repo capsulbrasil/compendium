@@ -5,13 +5,11 @@ tags: vue reactivity
 
 # Sharing reactivity without using a Global State Manager (Vuex, Pinia)
 
-Let's take the `sv-topbar` component as an example. It has a searching widget inside it that for layouting purposes had to be split in two different sub-components. So its inner directory structure is as following:
+Let's take the `sv-topbar` component as an example. It has a searching widget inside it that for layouting purposes had to be split in two different sub-components, `sv-search-bar` and `sv-search-results`. While `sv-search-bar` consists of an input to search for data across all collections, `sv-search-results` is intended for displaying these data, so, for making it clear, both components must share data among them, most specifically reactive data.
 
-While `sv-search-bar` consists of an input to search for data across all collections, `sv-search-results` is intended for displaying these data, so, for making it clear, both components must share data among them, most specifically reactive data.
+Whereas registering a Pinia store just for this is possible, this approach would polute the application structure with a whole store intended for a single sub-component. So, a event-listener approach to transit the data from first to parent then from parent to the second component, you may ask? That sounds painful and you'll would probably be fired if you came up with this.
 
-Whereas registering a Pinia store just for this is tempting, this approach would polute the application structure with a whole store intended for a single sub-component. So, a event-listener approach to transit the data from first to parent then from parent to the second component, you may ask? That sounds painful and you'll would probably be fired if you came up with this.
-
-Every scenarios considered the better solution would be still maintain the reactive object inside its context in the filesystem, so a `stores/search.ts` file is created within the `_internals` where the components are located in. Inside it we export our objects using Vue native `reactive` function, or `ref` function if it suits it better (`ref` is is often used to store literals) so it can be imported by both `sv-search-bar` and `sv-search-results`. The final result looks like below:
+Every scenarios considered the better solution would be to still maintain the reactive object inside its context in the filesystem, so a `stores/search.ts` file is created within the `_internals` where the components are located in. Inside it we export our objects using Vue native `reactive` function, or `ref` function if it suits it better (`ref` is is often used to store literals) so it can be imported by both `sv-search-bar` and `sv-search-results`. The final result looks like below:
 
 Object `results` is exported by `stores/search.ts`:
 ```typescript
@@ -46,7 +44,7 @@ watch(() => query.value, async () => {
 </script>
 ```
 
-Then the results are imported then read in `sv-seasrch-results.vue`:
+Then the results are imported then read in `sv-search-results.vue`:
 ```vue
 <script setup lang="ts">
 import { computed } from 'vue'
@@ -56,7 +54,7 @@ console.log(results)
 </script>
 ```
 
-Directory structure:
+Final directory structure:
 ```
 sv-topbar
 ├── _internals
