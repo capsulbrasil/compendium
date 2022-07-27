@@ -1,5 +1,5 @@
 ---
-author: João G. Santos
+author: João G. Santos (@ringeringeraja)
 tags: linux cli entr
 ---
 
