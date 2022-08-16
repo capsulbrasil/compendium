@@ -1,6 +1,6 @@
 ---
 author: Gabriel Augusto (@gabrielolivrp)
-tags: functional programming, lambda calculus
+tags: functional programming lambda calculus
 ---
 
 # Lambda Calculus
@@ -160,7 +160,7 @@ const two = (s) => (x) => s(s(x))
 const three = (s) => (x) => s(s(s(x)))
 ```
 
-### Função de adição
+### Addition Function
 
 Now we just need a function for the sum, which is defined by the following expression below:
 
