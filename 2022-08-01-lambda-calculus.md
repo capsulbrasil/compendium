@@ -1,6 +1,6 @@
 ---
 author: Gabriel Augusto (@gabrielolivrp)
-tags: functional programming, lambda calculus
+tags: functional programming lambda calculus
 ---
 
 # Lambda Calculus
