@@ -8,7 +8,7 @@ Some people uses a notebook and just turn the brainwaves into a lot of words, af
 
 ### Mind-maps
 
-![Mind map example](./files/mindmap_example1.jpg)
+![Mind map example](./files/mindmap-example1.jpg)
 
 A wonderful tool to planning structures, systems, workflows and much more. It's easily associative with the _SQL's entities diagram._
 
@@ -16,7 +16,7 @@ The creative process is pretty much close to programming: you have a bigger prob
 
 ### Card lists
 
-![Card list example](./files/cardlist_example1.jpg)
+![Card list example](./files/cardlist-example1.jpg)
 
 This is a well-known tool for almost everyone that worked into a team on high school, works like a charm in order to define a sequence of things that have to been done in a certain period, it's even possible to track results and deadlines.
 
